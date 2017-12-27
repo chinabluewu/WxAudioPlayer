@@ -1,0 +1,119 @@
+ <!-- <import src="../../wxParse/wxParse.wxml"/>  
+
+<loading hidden = "{{hide}}">加载中...</loading> 
+
+<view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>  -->
+
+
+<!-- audio.wxml -->
+<loading hidden = "{{hide}}">加载中...</loading> 
+
+<view style="">
+
+<!-- <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio> action="{{audioAction}}"-->
+
+<!-- <view class="animation-element-wrapper">
+        <view class="animation-element" animation="{{animation}}"></view>
+      </view> -->
+<image style="height:40px;width:40px;margin:0 4px 0 4px;border-radius:10%"  src = "{{poster}}" ></image>
+<text class="title" style="position:absolute">{{name}}\n</text>
+<text class="subtitle" style="color:darkgray;font-size:14px;">{{author}}</text>
+
+  <view class="page-section page-section-gap" style="text-align: center;margin:0;height:300px; background-color: lightgray">
+        <!-- <audio style="text-align: left" src="{{src}}" poster="{{poster}}" name="{{name}}" author="{{author}}"  id="myAudio" bindtimeupdate="funtimeupdate" binderror="funerror"  loop></audio> -->
+  
+   <image  style="position:absolute; width:240px;height:240px; margin:30px 0 30px -120px" bindtap="rotate" mode="aspectFit"  src = "../../images/playerCover.png"  ></image>
+
+  <image  class="img-round" style=" position:absolute; " bindtap="showLyrics" mode="aspectFit" animation="{{animation}}" src = "../../images/icon-130.png" ></image>  
+
+         <!-- <image   style=" position:absolute; width:8px;height:8px; margin:146px 0 0 116px " bindtap="rotate" mode="aspectFit" animation="{{animation}}" src = "../../images/point.png" ></image>   -->
+
+
+
+     <block wx:if="{{showLyrics === true}}">  
+
+     <canvas style="width:100%;height:300px;position:absolute;background-color:white;filter:opacity(90%) " bindtap="showLyrics"  canvas-id="myCanvas" bindtouchstart="start"
+  bindtouchmove="move"
+  bindtouchend="end" />
+
+     <view hidden="{{hidden}}">
+  Coordinates: ({{x}}, {{y}})
+     </view>
+     
+     
+     
+
+
+
+     <!-- <scroll-view scroll-y style="position:absolute;background-color:white;height:300px;filter:opacity(90%) " bindtap="showLyrics" scroll-into-view="{{lrcNowId}}" scroll-top="{{scrollTop}}" >
+     
+     <block wx:for="{{lyrics}}" wx:key="*this" >
+     <view > 
+
+
+       <text style="" wx:if="{{currentPositionInt == index}}"> {{index}}</text>  
+ 
+           <text id="lrcNow" wx:if="{{currentPositionInt >= index && currentPositionInt-2 < index}}" style="color:gold;font-size:18px">{{item}}</text>  
+
+        
+          <text wx:else>{{item}} </text>
+        
+       </view> 
+      </block>
+
+     </scroll-view>  -->
+
+
+    </block> 
+
+
+
+
+
+  </view>  
+</view>
+
+<!-- <text class="section__title" style="float:right;margin:3px 5px;"> 总时长：{{(totalTime)}} </text> -->
+
+<text class="subtitle" style="margin:0px 15px;">{{playTime}} </text>
+
+<text class="subtitle" style="float:right;margin:0px 15px;"> {{totalTime  }} </text>
+
+<view class="section section_gap">
+  
+  <view class="body-view" style="margin:10px;">
+    <slider bindchange="sliderChange" value="{{value}}" data-id="{{id}}"  />
+  </view>
+</view>
+
+<view class='btn-area' >
+  <!-- <text class="subtitle" style="margin:0px 8%; border-style:solid; border-width:1px;border-color:green;" bindtap="audioStart">回到开头</text>
+
+  <text class="subtitle" style="margin:0px 10%;border-style:solid; border-width:1px;border-color:green; font-size:26px" bindtap="audioPlay">{{btnText}} </text>
+
+  <text class="subtitle" style="margin:0px 6%;border-style:solid; border-width:1px;border-color:green; "bindtap="audioDownload" >下    载</text> -->
+
+ <view class="button-sp-area" > </view>
+      <!-- <button type="default" style="position:absolute;left:5%" bindtap="audioStart">回到开头 </button> -->
+
+<button type="default" style="position:absolute;left:5%" bindtap="audioRestart">回到开头 </button>
+
+      <button type="default" style="position:absolute;left:41%;border-radius:15px" bindtap="audioPlayAndPause">{{btnText}}</button>
+  
+        <!-- <button type="primary" bindtap="audioPause">暂停</button> 
+
+      <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>   -->
+      
+            <!-- <button type="default" style="position:absolute;right:5%" loading="{{loading}}"  bindtap="audioDownload">{{btn3Text}}</button> -->
+
+      <button type="default" style="position:absolute;right:5%" bindtap="likeItOrCancelIt">{{btn4Text}}</button>
+      
+  
+  <view class="button-sp-area" >    
+       
+  </view> 
+
+
+</view>
