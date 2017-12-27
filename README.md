@@ -1,2 +1,0 @@
-# WxAudioPlayer
-WxAudioPlayer
